@@ -1,5 +1,3 @@
-require("colorbuddy").setup()
-
 local Color, colors, Group, groups, styles = require('colorbuddy').setup()
 
 -- ############## COLORS ############## --
@@ -19,21 +17,21 @@ Color.new('bg4', '#7c6f64')
 Color.new('gray', '#928374')
 Color.new('light_gray', '#a89984')
 
-Color.new('red', '#cc241d')
-Color.new('green', '#98971a')
-Color.new('yellow', '#d79921')
-Color.new('blue', '#458588')
-Color.new('purple', '#b16286')
-Color.new('aqua', '#689d6a')
-Color.new('orange', '#d65d0e')
+Color.new('neutral_red', '#cc241d')
+Color.new('neutral_green', '#98971a')
+Color.new('neutral_yellow', '#d79921')
+Color.new('neutral_blue', '#458588')
+Color.new('neutral_purple', '#b16286')
+Color.new('neutral_aqua', '#689d6a')
+Color.new('neutral_orange', '#d65d0e')
 
-Color.new('bright_red', '#fb4934')
-Color.new('bright_green', '#b8bb26')
-Color.new('bright_yellow', '#fabd2f')
-Color.new('bright_blue', '#83a598')
-Color.new('bright_purple', '#d3869b')
-Color.new('bright_aqua', '#8ec07c')
-Color.new('bright_orange', '#fe8019')
+Color.new('red', '#fb4934')
+Color.new('green', '#b8bb26')
+Color.new('yellow', '#fabd2f')
+Color.new('blue', '#83a598')
+Color.new('purple', '#d3869b')
+Color.new('aqua', '#8ec07c')
+Color.new('orange', '#fe8019')
 
 -- ############## GROUPS ############## --
 
