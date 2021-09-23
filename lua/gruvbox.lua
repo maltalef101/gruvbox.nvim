@@ -53,7 +53,7 @@ Group.new('Precondit', colors.bright_aqua, colors.none, styles.NONE)
 Group.new('Repeat', colors.red, colors.none, styles.NONE)
 Group.new('Statement', colors.red, colors.none, styles.NONE)
 Group.new('StorageClass', colors.orange, colors.none, styles.NONE)
-Group.new('String', colors.green, colors.none, styles.italic)
+Group.new('String', colors.bright_green, colors.none, styles.italic)
 Group.new('Type', colors.yellow, colors.none, styles.NONE)
 Group.new('Typedef', colors.yellow, colors.none, styles.NONE)
 
