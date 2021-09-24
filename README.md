@@ -5,7 +5,7 @@ A lua port of the best colorscheme.
 
 Made using [tjdevries/colorbuddy.nvim](https://github.com/tjdevries/colorbuddy.nvim)
 
-## Installation:
+## Installation
 
 Using [packer.nvim](https://github.com/wbthomason/packer.nvim)
 
