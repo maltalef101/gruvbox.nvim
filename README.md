@@ -25,7 +25,7 @@ Plug 'tjdevries/colorbuddy.nvim'
 
 ## Usage
 
-Put the following in some part of your `init.lua`:
+Put the following in some part of your vimrc:
 
 ```lua
 require('colorbuddy').colorscheme('gruvbox')
