@@ -33,27 +33,38 @@ Color.new('neutral_purple', '#b16286')
 Color.new('neutral_aqua', '#689d6a')
 Color.new('neutral_orange', '#d65d0e')
 
+
 -- ############## GROUPS ############## --
 
 -- General purpose sytnax highlighting
-Group.new('Normal', colors.none, colors.none)
+Group.new('Normal', colors.none, colors.none, styles.none)
+Group.new('Boolean', colors.purple, colors.none, styles.NONE)
 Group.new('Character', colors.purple, colors.none, styles.NONE)
 Group.new('Condition', colors.red, colors.none, styles.NONE)
 Group.new('Constant', colors.purple, colors.none, styles.NONE)
 Group.new('Define', colors.aqua, colors.none, styles.NONE)
 Group.new('Exception', colors.red, colors.none, styles.NONE)
+Group.new('Float', colors.purple, colors.none, styles.NONE)
 Group.new('Function', colors.green, colors.none, styles.bold)
 Group.new('Identifier', colors.blue, colors.none, styles.NONE)
-Group.new('Keyword', colors.red, colors.none, styles.NONE)
+Group.new('Include', colors.aqua, colors.none, styles.NONE)
+Group.new('Keyword', colors.red, colors.none, styles.italic) -- FIXME: italic style is set because if not it's bold for some odd reason
 Group.new('Label', colors.red, colors.none, styles.NONE)
 Group.new('Macro', colors.aqua, colors.none, styles.NONE)
+Group.new('Number', colors.purple, colors.none, styles.NONE)
 Group.new('Operator', colors.fg, colors.none, styles.NONE)
 Group.new('PreProc', colors.aqua, colors.none, styles.NONE)
 Group.new('Precondit', colors.aqua, colors.none, styles.NONE)
 Group.new('Repeat', colors.red, colors.none, styles.NONE)
+Group.new('SpecialComment', colors.orange, colors.none, styles.italic)
+Group.new('SpecialChar', colors.orange, colors.none, styles.NONE)
+Group.new('Special', colors.orange, colors.none, styles.italic)
 Group.new('Statement', colors.red, colors.none, styles.NONE)
+Group.new('Structure', colors.aqua, colors.none, styles.NONE)
+Group.new('Delimiter', colors.orange, colors.none, styles.NONE)
 Group.new('StorageClass', colors.orange, colors.none, styles.NONE)
-Group.new('String', colors.green, colors.none, styles.italic)
+Group.new('String', colors.green, colors.none, styles.none)
+Group.new('Title', colors.green, colors.none, styles.bold)
 Group.new('Type', colors.yellow, colors.none, styles.NONE)
 Group.new('Typedef', colors.yellow, colors.none, styles.NONE)
 
@@ -63,6 +74,62 @@ Group.new('PmenuSel', colors.bg2, colors.blue, styles.NONE)
 Group.new('PmenuSbar', colors.none, colors.bg2, styles.NONE)
 Group.new('PmenuThumb', colors.none, colors.bg4, styles.NONE)
 
-Group.new('Comment', colors.gray, colors.NONE, styles.italic)
-Group.new('Todo', colors.orange, colors.NONE, styles.italic)
-Group.new('Error', colors.red, colors.NONE, styles.inverse)
+-- Misc
+Group.new('Comment', colors.gray, colors.none, styles.italic)
+Group.new('Todo', colors.orange, colors.none, styles.NONE)
+Group.new('Error', colors.red, colors.none, styles.NONE)
+
+Group.new('ErrorMsg', colors.bg, colors.red, styles.bold)
+Group.new('WarningMsg', colors.red, colors.none, styles.bold)
+Group.new('MoreMsg', colors.yellow, colors.none, styles.bold)
+Group.new('MoreMsg', colors.yellow, colors.none, styles.bold)
+Group.new('Question', colors.orange, colors.none, styles.bold)
+
+Group.new('Cursor', colors.none, colors.none, styles.inverse)
+Group.new('vCursor', groups.Cursor)
+Group.new('iCursor', groups.Cursor)
+Group.new('lCursor', groups.Cursor)
+
+Group.new('CursorLine', colors.none, colors.bg1, styles.none)
+Group.new('CursorColumn', colors.none, groups.CursorLine)
+Group.new('LineNr', colors.bg4, colors.none, styles.NONE)
+Group.new('CursorLineNr', colors.yellow, colors.bg1, styles.NONE)
+
+Group.new('TabLineFill', colors.bg4, colors.bg1, styles.inverse)
+Group.new('TabLineSel', colors.green, colors.bg1, styles.inverse)
+Group.new('TabLine', colors.bg4, colors.bg1, styles.inverse)
+
+Group.new('MatchParen', colors.none, colors.bg3, styles.bold)
+
+Group.new('NonText', colors.bg2, colors.none, styles.NONE)
+Group.new('SpecialKey', colors.bg2, colors.none, styles.NONE)
+
+Group.new('Visual', colors.none, colors.bg3, styles.inverse)
+Group.new('VisualNos', groups.Visual)
+
+Group.new('Search', colors.yellow, colors.bg, styles.inverse)
+Group.new('IncSearch', colors.yellow, colors.bg, styles.inverse)
+
+Group.new('Underlined', colors.blue, colors.none, styles.underline)
+
+Group.new('StatusLine', colors.bg2, colors.fg, styles.inverse)
+Group.new('StatusLineNC', colors.bg1, colors.fg3, styles.inverse)
+
+Group.new('VertSplit', colors.bg3, colors.bg, styles.NONE)
+
+Group.new('WildMenu', colors.blue, colors.bg2, styles.bold)
+
+Group.new('Directory', colors.green, colors.none, styles.bold)
+
+Group.new('Folded', colors.gray, colors.bg1, styles.italic)
+Group.new('FoldColumn', colors.gray, colors.bg1, styles.NONE)
+
+Group.new('DiffDelete', colors.red, colors.bg, styles.inverse)
+Group.new('DiffAdd', colors.green, colors.bg, styles.inverse)
+Group.new('DiffChange', colors.aqua, colors.bg, styles.inverse)
+Group.new('DiffText', colors.yellow, colors.bg, styles.inverse)
+
+if vim.fn.has('spell') == 1 then
+	-- TODO: add all spelling related groups
+	Group.new('SpellBad', colors.none, colors.none, styles.undercurl)
+end
