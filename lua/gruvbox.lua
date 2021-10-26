@@ -8,7 +8,7 @@ Color.new('fg2', '#d5c4a1')
 Color.new('fg3', '#bdae93')
 Color.new('fg3', '#a89984')
 
-Color.new('bg', '#282828')
+Color.new('bg0', '#282828')
 Color.new('bg1', '#3c3836')
 Color.new('bg2', '#504945')
 Color.new('bg3', '#665c54')
@@ -45,10 +45,10 @@ Group.new('Constant', colors.purple, colors.none, styles.NONE)
 Group.new('Define', colors.aqua, colors.none, styles.NONE)
 Group.new('Exception', colors.red, colors.none, styles.NONE)
 Group.new('Float', colors.purple, colors.none, styles.NONE)
-Group.new('Function', colors.green, colors.none, styles.bold)
+Group.new('Function', colors.green, colors.none, styles.NONE)
 Group.new('Identifier', colors.blue, colors.none, styles.NONE)
 Group.new('Include', colors.aqua, colors.none, styles.NONE)
-Group.new('Keyword', colors.red, colors.none, styles.italic) -- FIXME: italic style is set because if not it's bold for some odd reason
+Group.new('Keyword', colors.red, colors.none, styles.NONE) -- FIXME: even with no style it's still bold lmao
 Group.new('Label', colors.red, colors.none, styles.NONE)
 Group.new('Macro', colors.aqua, colors.none, styles.NONE)
 Group.new('Number', colors.purple, colors.none, styles.NONE)
@@ -58,7 +58,7 @@ Group.new('Precondit', colors.aqua, colors.none, styles.NONE)
 Group.new('Repeat', colors.red, colors.none, styles.NONE)
 Group.new('SpecialComment', colors.orange, colors.none, styles.italic)
 Group.new('SpecialChar', colors.orange, colors.none, styles.NONE)
-Group.new('Special', colors.orange, colors.none, styles.italic)
+Group.new('Special', colors.orange, colors.none, styles.NONE)
 Group.new('Statement', colors.red, colors.none, styles.NONE)
 Group.new('Structure', colors.aqua, colors.none, styles.NONE)
 Group.new('Delimiter', colors.orange, colors.none, styles.NONE)
@@ -75,11 +75,11 @@ Group.new('PmenuSbar', colors.none, colors.bg2, styles.NONE)
 Group.new('PmenuThumb', colors.none, colors.bg4, styles.NONE)
 
 -- Misc
+Group.new('Todo', colors.none, colors.bg0, styles.inverse + styles.bold)
 Group.new('Comment', colors.gray, colors.none, styles.italic)
-Group.new('Todo', colors.orange, colors.none, styles.NONE)
 Group.new('Error', colors.red, colors.none, styles.NONE)
 
-Group.new('ErrorMsg', colors.bg, colors.red, styles.bold)
+Group.new('ErrorMsg', colors.bg0, colors.red, styles.bold) -- FIXME: colors.bg doesn't work (just stays with colors.fg), so we put colors.bg0
 Group.new('WarningMsg', colors.red, colors.none, styles.bold)
 Group.new('MoreMsg', colors.yellow, colors.none, styles.bold)
 Group.new('MoreMsg', colors.yellow, colors.none, styles.bold)
@@ -101,21 +101,24 @@ Group.new('TabLine', colors.bg4, colors.bg1, styles.inverse)
 
 Group.new('MatchParen', colors.none, colors.bg3, styles.bold)
 
+Group.new('ColorColumn', colors.none, colors.bg1, styles.NONE)
+Group.new('Conceal', colors.blue, colors.none, styles.NONE)
+
 Group.new('NonText', colors.bg2, colors.none, styles.NONE)
 Group.new('SpecialKey', colors.bg2, colors.none, styles.NONE)
 
 Group.new('Visual', colors.none, colors.bg3, styles.inverse)
 Group.new('VisualNos', groups.Visual)
 
-Group.new('Search', colors.yellow, colors.bg, styles.inverse)
-Group.new('IncSearch', colors.yellow, colors.bg, styles.inverse)
+Group.new('Search', colors.yellow, colors.bg0, styles.inverse)
+Group.new('IncSearch', colors.yellow, colors.bg0, styles.inverse)
 
 Group.new('Underlined', colors.blue, colors.none, styles.underline)
 
 Group.new('StatusLine', colors.bg2, colors.fg, styles.inverse)
 Group.new('StatusLineNC', colors.bg1, colors.fg3, styles.inverse)
 
-Group.new('VertSplit', colors.bg3, colors.bg, styles.NONE)
+Group.new('VertSplit', colors.bg3, colors.bg0, styles.NONE)
 
 Group.new('WildMenu', colors.blue, colors.bg2, styles.bold)
 
@@ -124,12 +127,25 @@ Group.new('Directory', colors.green, colors.none, styles.bold)
 Group.new('Folded', colors.gray, colors.bg1, styles.italic)
 Group.new('FoldColumn', colors.gray, colors.bg1, styles.NONE)
 
-Group.new('DiffDelete', colors.red, colors.bg, styles.inverse)
-Group.new('DiffAdd', colors.green, colors.bg, styles.inverse)
-Group.new('DiffChange', colors.aqua, colors.bg, styles.inverse)
-Group.new('DiffText', colors.yellow, colors.bg, styles.inverse)
+Group.new('DiffDelete', colors.red, colors.bg0, styles.inverse)
+Group.new('DiffAdd', colors.green, colors.bg0, styles.inverse)
+Group.new('DiffChange', colors.aqua, colors.bg0, styles.inverse)
+Group.new('DiffText', colors.yellow, colors.bg0, styles.inverse)
+
+Group.new('BufTabLineCurrent', colors.bg0, colors.fg3, styles.none)
+Group.new('BufTabLineActive', colors.fg3, colors.bg2, styles.none)
+Group.new('BufTabLineHidden', colors.bg4, colors.bg1, styles.none)
+Group.new('BufTabLineFill', colors.bg0, colors.bg0, styles.none)
 
 if vim.fn.has('spell') == 1 then
 	-- TODO: add all spelling related groups
 	Group.new('SpellBad', colors.none, colors.none, styles.undercurl)
 end
+
+-- Plugin specific
+Group.new('IndentBlanklineChar', colors.bg2, colors.none, styles.NONE)
+Group.new('IndentBlanklineContextChar', colors.fg3, colors.none, styles.NONE)
+
+
+-- Tree-sitter specific
+-- Group.new()
